@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda do Fotógrafo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: bisque;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .retangulo {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 90%;
+            max-width: 500px;
+            height: auto;
+            background-color: white;
+            border-radius: 30px;
+            padding: 30px;
+            gap: 15px;
+        }
+
+        .fotografos,
+        .modelo,
+        .data-inicio,
+        .data-termino,
+        .maquiador,
+        .figurinista,
+        .titulo-job {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .titulo {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .input-text,
+        .input-date {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .botoes {
+            width: 100%;
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .botao {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        .ver-jobs {
+            border: 2px solid orange;
+            background-color: white;
+            color: orange;
+        }
+
+        .cadastrar {
+            background-color: orange;
+            color: white;
+        }
+
+        .ver-jobs:hover {
+            border: 2px solid red;
+            background-color: white;
+            color: red;
+            transition: 0.4s;
+        }
+
+        .cadastrar:hover {
+            background-color: red;
+            color: white;
+            transition: 0.4s;
+        }
+
+        .mensagem-success {
+            color: green;
+        }
+
+        .mensagem-error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="retangulo">
+        <div class="titulo-job">
+            <div class="titulo">Insira um título para o 'job'</div>
+            <input type="text" class="input-text" placeholder="Digite o título do job" id="titulo-job-input">
+        </div>
+
+        <div class="fotografos">
+            <div class="titulo">Insira o nome do fotógrafo do 'job'</div>
+            <input type="text" class="input-text" placeholder="Digite o nome do responsável pela fotografia"
+                id="fotografo-input">
+        </div>
+
+        <div class="modelo">
+            <div class="titulo">Insira o nome do(a) modelo</div>
+            <input type="text" class="input-text" placeholder="Digite o nome do(a) modelo">
+        </div>
+
+        <div class="data-inicio">
+            <div class="titulo">Informe a data de início do 'job'</div>
+            <input type="date" class="input-date">
+        </div>
+
+        <div class="data-termino">
+            <div class="titulo">Agora, informe a data de término</div>
+            <input type="date" class="input-date">
+        </div>
+
+        <div class="maquiador">
+            <div class="titulo">Insira o nome do(a) maquiador(a)</div>
+            <input type="text" class="input-text" placeholder="Digite o nome do(a) maquiador(a)">
+        </div>
+
+        <div class="figurinista">
+            <div class="titulo">Digite o nome do(a) figurinista</div>
+            <input type="text" class="input-text" placeholder="Digite o nome do(a) figurinista">
+        </div>
+
+        <div class="botoes">
+            <button class="botao ver-jobs">Ver Jobs Cadastrados</button>
+            <button class="botao cadastrar" onclick="cadastrarJob()">Cadastrar</button>
+        </div>
+
+        <div class="mensagem" id="mensagem">
+        </div>
+    </div>
+
+    <script>
+        function cadastrarJob() {
+            var tituloInput = document.getElementById('titulo-job-input').value;
+            var fotografoInput = document.getElementById('fotografo-input').value;
+
+            var mensagemElement = document.getElementById('mensagem');
+
+            if (tituloInput && fotografoInput) {
+                mensagemElement.innerHTML = '<p class="mensagem-success">Trabalho cadastrado com sucesso!</p>';
+            } else {
+                mensagemElement.innerHTML = '<p class="mensagem-error">Informações incompletas</p>';
+            }
+        }
+    </script>
+</body>
+
+</html>
